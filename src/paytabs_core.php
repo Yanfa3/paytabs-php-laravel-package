@@ -707,8 +707,7 @@ abstract class PaytabsExtraDataHolder extends PaytabsHolder
 
         $this->pt_merges(
             $all,
-            $this->airline_data,
-        );
+            $this->airline_data);
 
         return $all;
     }
