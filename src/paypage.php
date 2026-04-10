@@ -105,6 +105,12 @@ class paypage
         return $this; 
     }
 
+    public function sendAgreement($description, $currency, $initial_amount, $repeat_amount, $repeat_terms, $repeat_period, $repeat_every, $first_installment_due_date, $final_amount = null)
+    {
+        $this->paytabs_core->set70Agreement($description, $currency, $initial_amount, $repeat_amount, $repeat_terms, $repeat_period, $repeat_every, $first_installment_due_date, $final_amount);
+        return $this;
+    }
+
    public function create_pay_page()
     {
         $this->paytabs_core->set99PluginInfo('Laravel',9,'1.7.1');

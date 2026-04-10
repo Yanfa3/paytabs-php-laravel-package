@@ -1027,6 +1027,11 @@ class PaytabsRequestHolder extends PaytabsBasicHolder
      */
     private $card_discounts;
 
+    /**
+     * agreement
+     */
+    private $agreement;
+
     //
 
     /**
@@ -1042,7 +1047,8 @@ class PaytabsRequestHolder extends PaytabsBasicHolder
             $this->framed,
             $this->config_id,
             $this->alt_currency,
-            $this->card_discounts
+            $this->card_discounts,
+            $this->agreement
         );
 
         return $all;
@@ -1148,6 +1154,30 @@ class PaytabsRequestHolder extends PaytabsBasicHolder
                 $this->set50UserDefined(null, null, PaytabsEnum::DISCOUNT_FLAG);
             }
         }
+
+        return $this;
+    }
+
+    public function set70Agreement($description, $currency, $initial_amount, $repeat_amount, $repeat_terms, $repeat_period, $repeat_every, $first_installment_due_date, $final_amount = null)
+    {
+        $agreement = [
+            'agreement_description' => $description,
+            'agreement_currency' => $currency,
+            'initial_amount' => (float)$initial_amount,
+            'repeat_amount' => (float)$repeat_amount,
+            'repeat_terms' => (int)$repeat_terms,
+            'repeat_period' => (int)$repeat_period,
+            'repeat_every' => (int)$repeat_every,
+            'first_installment_due_date' => $first_installment_due_date,
+        ];
+
+        if (!is_null($final_amount)) {
+            $agreement['final_amount'] = (float)$final_amount;
+        }
+
+        $this->agreement = [
+            'agreement' => $agreement
+        ];
 
         return $this;
     }
