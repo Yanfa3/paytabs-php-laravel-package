@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Paytabscom\Laravel_paytabs;
+namespace Yanfaa\Laravel_paytabs;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Log;
 

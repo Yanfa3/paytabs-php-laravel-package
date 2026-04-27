@@ -1,5 +1,5 @@
 {
-    "name": "paytabscom/laravel_paytabs",
+    "name": "yanfaa/laravel_paytabs",
     "version": "1.10.0",
     "type": "composer-package",
     "description": "Official laravel package to implement PayTabs integration with laravel apps",
@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Paytabscom\\Laravel_paytabs\\": "src/"
+            "Yanfaa\\Laravel_paytabs\\": "src/"
         }
     }
 }

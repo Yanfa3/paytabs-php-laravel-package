@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Paytabscom\Laravel_paytabs\Facades;
+namespace Yanfaa\Laravel_paytabs\Facades;
 
 
 use Illuminate\Support\Facades\Facade;
