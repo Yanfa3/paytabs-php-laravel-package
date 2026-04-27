@@ -1,3 +1,3 @@
 <?php
 
-Route::post('/paymentIPN', [\Yanfaa\Laravel_paytabs\Controllers\PaytabsLaravelListenerApi::class, 'paymentIPN'])->name('payment_ipn');
+Route::post('/paymentIPN', [\Yanfaa\Laravel_paytabs\Controllers\PaytabsLaravelListenerApi::class, 'paymentIPN'])->name('payment_ipn')->middleware('webhook.log');
