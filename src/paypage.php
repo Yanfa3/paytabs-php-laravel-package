@@ -287,5 +287,10 @@ class paypage
         $transaction = $this->paytabs_api->verify_payment($tran_ref);
         return $transaction;
     }
+
+    public function cancelAgreement($agreement_id)
+    {
+        return $this->paytabs_api->cancel_agreement($agreement_id);
+    }
 }
 

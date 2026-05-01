@@ -1524,6 +1524,8 @@ class PaytabsApi
     const URL_TOKEN_QUERY  = 'payment/token';
     const URL_TOKEN_DELETE = 'payment/token/delete';
 
+    const URL_AGREEMENT_CANCEL = 'payment/agreement/cancel';
+
     const URL_INQUIRY_VALU = 'payment/info/valu/inquiry';
 
     //
@@ -1647,6 +1649,14 @@ class PaytabsApi
     {
         $values = ['token' => $token];
         $res = json_decode($this->sendRequest(self::URL_TOKEN_DELETE, $values));
+
+        return $res;
+    }
+
+    function cancel_agreement($agreement_id)
+    {
+        $values = ['agreement_id' => $agreement_id];
+        $res = json_decode($this->sendRequest(self::URL_AGREEMENT_CANCEL, $values));
 
         return $res;
     }
