@@ -1576,10 +1576,7 @@ class PaytabsApi
     {
         if (self::$instance == null) {
             self::$instance = new PaytabsApi($region, $merchant_id, $key);
-        } else {
-            self::$instance->setAuth($merchant_id, $key);
         }
-
         return self::$instance;
     }
 
@@ -1658,9 +1655,7 @@ class PaytabsApi
     function cancel_agreement($agreement_id)
     {
         $values = ['agreement_id' => $agreement_id];
-        $response = $this->sendRequest(self::URL_AGREEMENT_CANCEL, $values);
-        PaytabsHelper::log("Cancel Agreement Response: " . $response, 1);
-        $res = json_decode($response);
+        $res = json_decode($this->sendRequest(self::URL_AGREEMENT_CANCEL, $values));
 
         return $res;
     }
@@ -1930,11 +1925,7 @@ class PaytabsApi
             'Content-Type: application/json',
             "Authorization: {$auth_key}"
         ];
-
-        PaytabsHelper::log("PayTabs Request: " . $gateway_url, 1);
-        PaytabsHelper::log("PayTabs Headers: " . json_encode($headers), 1);
-
-        $values['profile_id'] = $this->profile_id;
+        $values['profile_id'] = (int) $this->profile_id;
         $post_params = json_encode($values);
 
         $ch = @curl_init();
